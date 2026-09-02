@@ -24,12 +24,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32">
-      {/* Animated Background Gradients */}
-      <div className="absolute inset-0 w-full h-full -z-10">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[150px] mix-blend-screen" />
-      </div>
-
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
         {/* Availability Badge */}
         <motion.div

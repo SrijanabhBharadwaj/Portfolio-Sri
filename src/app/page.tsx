@@ -5,10 +5,12 @@ import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Achievements } from "@/components/Achievements";
 import { Contact } from "@/components/Contact";
+import { AeroShards } from "@/components/AeroShards";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen isolate">
+      <AeroShards />
       <Hero />
       <About />
       <Projects />
