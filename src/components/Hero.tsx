@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, FileText, Send } from "lucide-react";
 import { CV_DATA } from "@/data/cv";
 import { useEffect, useState } from "react";
-import MagicRings from "@/components/MagicRings";
 
 const TITLES = [
   "AI Engineer",
@@ -25,34 +24,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32">
-      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-95">
-        <div style={{ width: "600px", height: "400px", position: "relative" }}>
-          <MagicRings
-            color="#A855F7"
-            colorTwo="#6366F1"
-            ringCount={6}
-            speed={1}
-            attenuation={10}
-            lineThickness={2}
-            baseRadius={0.35}
-            radiusStep={0.1}
-            scaleRate={0.1}
-            opacity={1}
-            blur={0}
-            noiseAmount={0.1}
-            rotation={0}
-            ringGap={1.5}
-            fadeIn={0.7}
-            fadeOut={0.5}
-            followMouse={false}
-            mouseInfluence={0.2}
-            hoverScale={1.2}
-            parallax={0.05}
-            clickBurst={false}
-          />
-        </div>
-      </div>
-
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
         {/* Availability Badge */}
         <motion.div
