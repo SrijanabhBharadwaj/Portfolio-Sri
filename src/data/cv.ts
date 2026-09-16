@@ -5,7 +5,7 @@ export const CV_DATA = {
   contact: {
     phone: "+91-93650-81319",
     email: "srijanabh09@gmail.com",
-    linkedin: "https://linkedin.com/in/SrijanabhBharadwaj",
+    linkedin: "https://www.linkedin.com/in/srijanabh-bharadwaj",
     github: "https://github.com/SrijanabhBharadwaj",
   },
   summary:
