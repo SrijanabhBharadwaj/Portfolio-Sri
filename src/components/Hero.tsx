@@ -12,15 +12,24 @@ export function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-center z-10"
       >
-        <h2 className="text-sm md:text-base tracking-[0.3em] text-[#00f3ff] uppercase mb-4 font-heading">
-          A Message from Earth
-        </h2>
-        <h1 className="text-4xl md:text-7xl lg:text-8xl font-black font-heading hollow-text-purple uppercase mb-6 tracking-wide drop-shadow-2xl">
-          Hello Fellow<br className="hidden md:block" /> Galaxy Member
-        </h1>
-        <h3 className="text-xl md:text-3xl font-heading font-medium text-white mb-16 tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-          I AM {CV_DATA.name.split(' ')[0].toUpperCase()}
-        </h3>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mb-16">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black font-heading hollow-text-purple uppercase tracking-widest drop-shadow-[0_0_15px_rgba(176,38,255,0.4)] leading-tight text-center md:text-right z-10 relative">
+            Srijanabh <br className="hidden md:block" /> Bharadwaj
+          </h1>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden neon-border-purple shrink-0 bg-[#0b071a]/50 flex z-10 relative"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/profile.jpg" 
+              alt="Srijanabh Bharadwaj" 
+              className="object-cover w-full h-full grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+            />
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* The massive foreground planet curve */}
