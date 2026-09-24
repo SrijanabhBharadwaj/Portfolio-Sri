@@ -5,12 +5,10 @@ import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Achievements } from "@/components/Achievements";
 import { Contact } from "@/components/Contact";
-import { AeroShards } from "@/components/AeroShards";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen isolate">
-      <AeroShards />
+    <main className="relative min-h-screen bg-[#fbfbfd]">
       <Hero />
       <About />
       <Projects />
@@ -18,8 +16,7 @@ export default function Home() {
       <Skills />
       <Achievements />
       <Contact />
-      {/* Footer */}
-      <footer className="py-8 text-center text-muted-foreground border-t border-white/5">
+      <footer className="py-12 text-center text-[#86868b] border-t border-[#d2d2d7]">
         <p className="text-sm">© {new Date().getFullYear()} Srijanabh Bharadwaj. All rights reserved.</p>
       </footer>
     </main>
