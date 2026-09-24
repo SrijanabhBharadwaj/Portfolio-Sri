@@ -1,65 +1,75 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { CV_DATA } from "@/data/cv";
 
 export function Achievements() {
   return (
-    <section id="achievements" className="py-24 md:py-32 bg-white border-t border-[#d2d2d7]">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-16">
-          Education & Volunteering
-        </h2>
-
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-[#1d1d1f] mb-8">Education</h3>
-          <div className="space-y-12">
-            {CV_DATA.education.map((edu, index) => (
-              <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8">
-                <div className="md:w-1/3 shrink-0">
-                  <span className="text-[#86868b] text-base md:text-lg font-medium tracking-wide">
-                    {edu.period}
-                  </span>
+    <section id="achievements" className="relative flex flex-col items-center justify-center py-32 z-10 text-center px-4">
+      <h2 className="font-heading text-4xl md:text-6xl hollow-text tracking-widest uppercase mb-16">
+        Academia & Impact
+      </h2>
+      
+      <div className="w-full max-w-5xl space-y-16">
+        
+        {/* Education */}
+        <div className="text-left w-full">
+            <h3 className="font-heading text-3xl font-bold text-white uppercase mb-8 ml-4">
+                Education
+            </h3>
+            <div className="space-y-6">
+            {CV_DATA.education.map((edu, i) => (
+                <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="neon-border glass-panel p-6"
+                >
+                <div className="flex flex-col md:flex-row gap-4 justify-between md:items-center border-b border-white/10 pb-4 mb-4">
+                    <h4 className="font-heading text-[#00f3ff] text-lg md:text-xl uppercase">{edu.degree}</h4>
+                    <span className="font-heading text-xs text-slate-400 tracking-widest uppercase text-left md:text-right">{edu.period}</span>
                 </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-xl md:text-2xl font-bold text-[#1d1d1f] mb-1">
-                    {edu.degree}
-                  </h4>
-                  <p className="text-[#1d1d1f] font-medium text-lg">
-                    {edu.institution}
-                  </p>
-                </div>
-              </div>
+                <p className="font-sans text-slate-200 text-lg">{edu.institution}</p>
+                <p className="font-sans text-slate-400 text-sm mt-2">{edu.location}</p>
+                </motion.div>
             ))}
-          </div>
+            </div>
         </div>
 
-        <div>
-           <h3 className="text-2xl font-bold text-[#1d1d1f] mb-8">Volunteering</h3>
-           <div className="space-y-12">
-            {CV_DATA.volunteering.map((vol, index) => (
-              <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8">
-                <div className="md:w-1/3 shrink-0">
-                  <span className="text-[#86868b] text-base md:text-lg font-medium tracking-wide">
-                    {vol.period}
-                  </span>
+        {/* Volunteering */}
+        <div className="text-left w-full">
+            <h3 className="font-heading text-3xl font-bold text-white uppercase mb-8 ml-4">
+                Volunteering
+            </h3>
+            <div className="space-y-6">
+            {CV_DATA.volunteering.map((vol, i) => (
+                <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="neon-border-purple glass-panel p-6"
+                >
+                <div className="flex flex-col md:flex-row gap-4 justify-between md:items-center border-b border-white/10 pb-4 mb-4">
+                    <h4 className="font-heading text-[#b026ff] text-lg md:text-xl uppercase drop-shadow-[0_0_5px_rgba(176,38,255,0.4)]">{vol.role}</h4>
+                    <span className="font-heading text-xs text-slate-400 tracking-widest uppercase text-left md:text-right">{vol.period}</span>
                 </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-xl md:text-2xl font-bold text-[#1d1d1f] mb-1">
-                    {vol.role}
-                  </h4>
-                  <p className="text-[#1d1d1f] font-medium text-lg mb-3">
-                    {vol.organization}
-                  </p>
-                  <div className="space-y-2">
-                    {vol.description.map((desc, i) => (
-                        <p key={i} className="text-[#86868b] leading-relaxed text-lg">
-                        {desc}
+                <p className="font-sans text-slate-200 text-lg mb-4">{vol.organization}</p>
+                <div className="space-y-2">
+                    {vol.description.map((desc, idx) => (
+                        <p key={idx} className="font-sans text-slate-400 text-sm md:text-base leading-relaxed">
+                            • {desc}
                         </p>
                     ))}
-                  </div>
                 </div>
-              </div>
+                </motion.div>
             ))}
-          </div>
+            </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,40 +1,40 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { CV_DATA } from "@/data/cv";
 
-const skillCategories = [
-  { title: "AI & Machine Learning", skills: CV_DATA.skills.ai_ml },
-  { title: "Web Development", skills: CV_DATA.skills.web_dev },
-  { title: "Programming", skills: CV_DATA.skills.programming },
-  { title: "Data & Systems", skills: CV_DATA.skills.data_systems },
-  { title: "Engineering & Hardware", skills: CV_DATA.skills.engineering },
-];
-
 export function Skills() {
-  return (
-    <section id="skills" className="py-24 md:py-32 bg-[#fbfbfd] border-t border-[#d2d2d7]">
-      <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-16">
-          Skills
-        </h2>
+  const allSkills = [...CV_DATA.skills.ai_ml, ...CV_DATA.skills.web_dev];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-          {skillCategories.map((category) => (
-            <div key={category.title} className="flex flex-col">
-              <h3 className="text-xl font-bold text-[#1d1d1f] mb-4 pb-2 border-b border-[#d2d2d7]">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-lg text-[#86868b]"
-                  >
-                    {skill}{category.skills[category.skills.length - 1] === skill ? "" : ","}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+  return (
+    <section id="skills" className="relative w-full flex flex-col items-center justify-center py-32 px-4 md:px-6 z-10 text-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <h2 className="font-heading text-4xl md:text-6xl hollow-text tracking-widest uppercase mb-4">
+          My Skills
+        </h2>
+        <p className="font-heading text-sm text-[#00f3ff] tracking-[0.2em] uppercase">
+          A list of some of my core tools
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl">
+        {allSkills.map((skill, i) => (
+          <motion.div
+            key={skill}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            className="neon-border glass-panel py-4 px-4 flex items-center justify-center font-heading text-xs text-white uppercase text-center min-h-[70px] backdrop-blur-md"
+          >
+            {skill}
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -1,14 +1,22 @@
-import { CV_DATA } from "@/data/cv";
+"use client";
+
+import { motion } from "framer-motion";
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-white border-t border-[#d2d2d7]">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-12">
-          About
-        </h2>
-        
-        <div className="space-y-8 text-lg md:text-xl text-[#1d1d1f] leading-relaxed">
+    <section id="about" className="relative flex flex-col items-center justify-center py-32 z-10 text-center px-4">
+      <h2 className="font-heading text-4xl md:text-6xl hollow-text-purple tracking-widest uppercase mb-16">
+        Origin Story
+      </h2>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="neon-border glass-panel p-8 md:p-12 text-left w-full max-w-4xl"
+      >
+        <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed font-sans">
           <p>
             I am a Computer Science engineer specializing in Artificial Intelligence and Machine Learning. 
             My core drive is building intelligent, full-stack applications and conducting cross-disciplinary research 
@@ -16,8 +24,8 @@ export function About() {
           </p>
           <p>
             What sets my approach apart is the fusion of an analytical engineering mindset with a deep-rooted 
-            background in the creative arts. Having earned a <strong>Diploma in Fine Arts</strong> and 
-            a <strong>Visharad I in Hindustani Classical Music</strong>, I approach 
+            background in the creative arts. Having earned a <strong className="text-[#00f3ff] font-medium drop-shadow-[0_0_2px_#00f3ff]">Diploma in Fine Arts</strong> and 
+            a <strong className="text-[#00f3ff] font-medium drop-shadow-[0_0_2px_#00f3ff]">Visharad I in Hindustani Classical Music</strong>, I approach 
             software development not just as writing code, but as a discipline of design and harmony.
           </p>
           <p>
@@ -26,7 +34,7 @@ export function About() {
             intuitive experiences.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

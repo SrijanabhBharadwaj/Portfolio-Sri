@@ -1,39 +1,61 @@
-import { CV_DATA } from "@/data/cv";
+"use client";
+
+import { motion } from "framer-motion";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-40 bg-[#fbfbfd] border-t border-[#d2d2d7]">
-      <div className="container mx-auto px-6 md:px-12 max-w-3xl text-center">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-6">
-          Get in Touch
+    <section id="contact" className="relative flex flex-col items-center justify-center py-32 z-10 text-center px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <span className="font-heading text-xs md:text-sm tracking-widest text-[#00f3ff] drop-shadow-[0_0_8px_#00f3ff] mb-4 block">
+          &lt; GET IN TOUCH /&gt;
+        </span>
+        <h2 className="font-heading text-4xl md:text-6xl hollow-text-purple tracking-widest uppercase mb-12">
+          Contact Me
         </h2>
-        <p className="text-xl text-[#86868b] leading-relaxed mb-12">
-          Whether you have a specific project in mind or simply want to learn more, I’m available to discuss how we can work together.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a
-            href={`mailto:${CV_DATA.contact.email}`}
-            className="inline-flex items-center justify-center rounded-full bg-[#0066cc] px-8 py-4 text-lg font-semibold text-white hover:bg-[#0055b3] transition-colors w-full sm:w-auto"
-          >
-            Email Me
-          </a>
-          <a
-            href={CV_DATA.contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#e8e8ed] px-8 py-4 text-lg font-semibold text-[#1d1d1f] hover:bg-[#d2d2d7] transition-colors w-full sm:w-auto"
-          >
-            Connect on LinkedIn
-          </a>
-        </div>
-
-        <div className="text-[#86868b] space-x-6 text-lg">
-          <a href={CV_DATA.contact.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#1d1d1f] transition-colors">GitHub</a>
-          <span>·</span>
-          <span>{CV_DATA.contact.phone}</span>
-        </div>
-      </div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="neon-border glass-panel p-8 md:p-12 text-left w-full max-w-2xl"
+      >
+        <form className="flex flex-col gap-6 font-heading">
+          <div className="flex flex-col gap-2">
+            <label className="text-white text-xs md:text-sm tracking-widest uppercase">Email :</label>
+            <input 
+              type="email" 
+              placeholder="HELLO@EARTH.COM"
+              className="bg-black/30 border border-white/20 p-4 text-[#00f3ff] placeholder:text-white/20 outline-none focus:border-[#00f3ff] transition-colors"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-white text-xs md:text-sm tracking-widest uppercase">Subject :</label>
+            <input 
+              type="text" 
+              placeholder="MISSION DETAILS"
+              className="bg-black/30 border border-white/20 p-4 text-[#00f3ff] placeholder:text-white/20 outline-none focus:border-[#00f3ff] transition-colors"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-white text-xs md:text-sm tracking-widest uppercase">Content :</label>
+            <textarea 
+              rows={5}
+              placeholder="TRANSMITTING COORDINATES..."
+              className="bg-black/30 border border-white/20 p-4 text-[#00f3ff] placeholder:text-white/20 outline-none focus:border-[#00f3ff] transition-colors resize-none"
+            ></textarea>
+          </div>
+          
+          <button type="button" className="mt-4 bg-[#b026ff] text-white py-4 font-bold tracking-widest uppercase hover:bg-[#991be6] transition-colors shadow-[0_0_15px_rgba(176,38,255,0.4)]">
+            Submit
+          </button>
+        </form>
+      </motion.div>
     </section>
   );
 }
